@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Script标签加载文本示例</title>
+</head>
+<body>
+    <h1>通过 Script 标签加载文本</h1>
+    
+    <!-- 1. 目标容器：必须在脚本执行前存在于 DOM 中 -->
+    <p id="pageText">等待加载...</p>
+
+    <!-- 2. 加载包含变量声明的外部文件 -->
+    <!-- 假设 data.js 内容为: var loadedText = "这是从外部文件加载的文本"; -->
+    <script src="data.js"></script>
+
+    <!-- 3. 执行逻辑：将变量值写入页面 -->
+    <script>
+        // 检查变量是否成功加载
+        if (typeof loadedText !== 'undefined') {
+            const element = document.getElementById('pageText');
+            if (element) {
+                // 使用 textContent 确保只渲染纯文本
+                element.textContent = loadedText;
+            }
+        } else {
+            console.warn('未能找到 loadedText 变量，请检查 data.js 是否正确加载。');
+        }
+    </script>
+</body>
+</html>

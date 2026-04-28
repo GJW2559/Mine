@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户信息</title>
+    <script src="../js/data.js"></script>
+    <div id="loadedText">None</div>
+    <script>
+        // 检查变量是否成功加载
+        if (typeof loadedText !== 'undefined') {
+            const element = document.getElementById('pageText');
+            if (element) {
+                // 使用 textContent 确保只渲染纯文本
+                element.textContent = loadedText;
+            }
+        } else {
+            alert('未能找到用户信息，开发者、浏览器问题');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
